@@ -37,11 +37,6 @@ tailwind.config = {
 </head>
 <body class="font-sans text-ink bg-white antialiased">
 
-<!-- Demo banner -->
-<div class="bg-ink text-white text-xs text-center py-2 px-4">
-  Ukázkový web — všechna jména, čísla a reference jsou smyšlené. Takhle může vypadat web pro vaši bazénářskou firmu.
-</div>
-
 <!-- Nav -->
 <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200">
   <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
@@ -65,7 +60,6 @@ tailwind.config = {
 <section class="border-b border-gray-200">
   <div class="max-w-6xl mx-auto px-5 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
     <div class="fade-up">
-      <p class="text-sm text-petrol font-medium mb-4">Rodinná bazénářská firma · Jižní Morava</p>
       <h1 class="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight mb-5">
         Bazén na klíč.<br>Od výkopu po první koupání.
       </h1>
@@ -183,7 +177,7 @@ tailwind.config = {
 <section id="ceny" class="py-16 md:py-24 bg-gray-50 border-y border-gray-200">
   <div class="max-w-6xl mx-auto px-5">
     <div class="mb-12 fade-up">
-      <h2 class="font-display text-3xl font-semibold tracking-tight mb-3">Kolik to stojí</h2>
+      <h2 class="font-display text-3xl font-semibold tracking-tight mb-3">Orientační ceník</h2>
       <p class="text-gray-600 max-w-lg">Orientační ceny na klíč včetně výkopu, desky a základní technologie. Přesnou cenu dostanete po zaměření — a platí.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
@@ -225,7 +219,7 @@ tailwind.config = {
 <!-- FAQ -->
 <section id="faq" class="py-16 md:py-24">
   <div class="max-w-3xl mx-auto px-5">
-    <h2 class="font-display text-3xl font-semibold tracking-tight mb-10 fade-up">Na co se lidi ptají</h2>
+    <h2 class="font-display text-3xl font-semibold tracking-tight mb-10 fade-up">Časté dotazy</h2>
     <div class="divide-y divide-gray-200 border-y border-gray-200" x-data="{ open: 0 }">
       <div class="fade-up">
         <button @click="open = open === 1 ? 0 : 1" class="w-full flex justify-between items-center py-5 text-left font-medium gap-4">
@@ -294,8 +288,8 @@ tailwind.config = {
 <!-- Footer -->
 <footer class="bg-ink border-t border-white/10 text-gray-400 text-xs">
   <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row justify-between gap-3">
-    <p>© 2026 HLADINA bazény s.r.o. — smyšlená firma.</p>
-    <p>Ukázkový web (demo). Fotografie: Unsplash. Všechny údaje, ceny a reference jsou ilustrační.</p>
+    <p>© 2026 HLADINA bazény s.r.o.</p>
+    <p>Web vytvořil <a href="https://tadeas-ujvary.cz" target="_blank" rel="noopener" class="text-white hover:text-petrol underline underline-offset-2">Tadeáš Ujváry</a></p>
   </div>
 </footer>
 
