@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HLADINA — bazény na klíč | DEMO</title>
+<meta name="description" content="Ukázkový web pro výrobce bazénů. Bazény na klíč od návrhu po první koupání.">
+<meta name="robots" content="noindex">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', 'sans-serif'],
+      },
+      colors: {
+        petrol: { DEFAULT: '#0e7490', dark: '#155e75', pale: '#ecfeff' },
+        ink: '#1c2b33',
+      },
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .fade-up { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-up.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .fade-up { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body class="font-sans text-ink bg-white antialiased">
+
+<!-- Demo banner -->
+<div class="bg-ink text-white text-xs text-center py-2 px-4">
+  Ukázkový web — všechna jména, čísla a reference jsou smyšlené. Takhle může vypadat web pro vaši bazénářskou firmu.
+</div>
+
+<!-- Nav -->
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#" class="font-display font-semibold text-xl tracking-tight">
+      HLADINA<span class="text-petrol">.</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm text-gray-600">
+      <a href="#sluzby" class="hover:text-ink">Co děláme</a>
+      <a href="#realizace" class="hover:text-ink">Realizace</a>
+      <a href="#postup" class="hover:text-ink">Jak stavba probíhá</a>
+      <a href="#ceny" class="hover:text-ink">Ceny</a>
+      <a href="#faq" class="hover:text-ink">Časté dotazy</a>
+    </nav>
+    <a href="#kontakt" class="text-sm font-medium bg-petrol text-white px-4 py-2 rounded-md hover:bg-petrol-dark transition-colors">
+      Nezávazná poptávka
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+    <div class="fade-up">
+      <p class="text-sm text-petrol font-medium mb-4">Rodinná bazénářská firma · Jižní Morava</p>
+      <h1 class="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight mb-5">
+        Bazén na klíč.<br>Od výkopu po první koupání.
+      </h1>
+      <p class="text-gray-600 leading-relaxed mb-8 max-w-md">
+        Stavíme fóliové a plastové bazény do rodinných zahrad. Jedna parta, jedna smlouva, pevný termín — a na jaře se koupete.
+      </p>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#kontakt" class="bg-petrol text-white font-medium px-6 py-3 rounded-md hover:bg-petrol-dark transition-colors">Chci cenovou nabídku</a>
+        <a href="#postup" class="text-gray-700 font-medium px-2 py-3 hover:text-petrol">Jak stavba probíhá →</a>
+      </div>
+      <div class="mt-10 pt-6 border-t border-gray-200 flex gap-10 text-sm">
+        <div><span class="block font-semibold text-ink">Od roku 2011</span><span class="text-gray-500">na trhu</span></div>
+        <div><span class="block font-semibold text-ink">140+ bazénů</span><span class="text-gray-500">v zahradách</span></div>
+        <div><span class="block font-semibold text-ink">5 let</span><span class="text-gray-500">záruka na dílo</span></div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1000&q=75&auto=format&fit=crop"
+           alt="Zahradní bazén s kamennou zídkou" class="rounded-lg w-full h-[420px] md:h-[520px] object-cover" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- Služby -->
+<section id="sluzby" class="py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="mb-12 fade-up">
+      <h2 class="font-display text-3xl font-semibold tracking-tight mb-3">Co pro vás uděláme</h2>
+      <p class="text-gray-600 max-w-lg">Tři věci, které umíme pořádně. Nic víc na webu nenajdete, protože nic víc neděláme.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="border border-gray-200 rounded-lg p-7 fade-up">
+        <div class="w-10 h-10 rounded-md bg-petrol-pale text-petrol flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20M2 17c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 6 0M7 12V7a2 2 0 012-2h6a2 2 0 012 2v5"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Bazény na klíč</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Skimmerové i přelivové, fóliové nebo plastové. Zaměření, výkop, základová deska, usazení, obetonování — všechno naše práce, jedna smlouva.</p>
+      </div>
+      <div class="border border-gray-200 rounded-lg p-7 fade-up">
+        <div class="w-10 h-10 rounded-md bg-petrol-pale text-petrol flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20V10a8 8 0 0116 0v10M4 15h16M9 20v-5m6 5v-5"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Zastřešení a technologie</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Posuvná zastřešení, tepelná čerpadla, slaná úprava vody, protiproudy. Poradíme, co má smysl — a co je zbytečně drahé.</p>
+      </div>
+      <div class="border border-gray-200 rounded-lg p-7 fade-up">
+        <div class="w-10 h-10 rounded-md bg-petrol-pale text-petrol flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.4 15.6a4 4 0 105.2 5.2l4-4-5.2-5.2-4 4zM8 8L4 4m4 4l2.5 2.5M8 8L5.5 10.5 2 7l3.5-3.5L8 8z"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Servis a zazimování</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Jarní zprovoznění, výměna písku ve filtraci, opravy fólií, zazimování. Jezdíme i k bazénům, které jsme nestavěli.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Realizace -->
+<section id="realizace" class="py-16 md:py-24 bg-gray-50 border-y border-gray-200">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="mb-12 fade-up">
+      <h2 class="font-display text-3xl font-semibold tracking-tight mb-3">Poslední realizace</h2>
+      <p class="text-gray-600 max-w-lg">Žádné katalogové fotky. Tohle jsme postavili, tady se lidi koupou.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <figure class="fade-up">
+        <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=800&q=75&auto=format&fit=crop" alt="Fóliový skimmerový bazén" class="rounded-lg w-full h-64 object-cover mb-3">
+        <figcaption class="text-sm"><span class="font-medium">Fóliový skimmer 7 × 3,5 m</span><span class="text-gray-500"> · Rosice, 2025 — s přisazenou terasou a tepelným čerpadlem</span></figcaption>
+      </figure>
+      <figure class="fade-up">
+        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=75&auto=format&fit=crop" alt="Přelivový bazén u novostavby" class="rounded-lg w-full h-64 object-cover mb-3">
+        <figcaption class="text-sm"><span class="font-medium">Přelivový bazén 8 × 4 m</span><span class="text-gray-500"> · Kuřim, 2024 — slaná voda, celoskleněné zábradlí</span></figcaption>
+      </figure>
+      <figure class="fade-up">
+        <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?w=800&q=75&auto=format&fit=crop" alt="Bazén s dřevěnou terasou shora" class="rounded-lg w-full h-64 object-cover mb-3">
+        <figcaption class="text-sm"><span class="font-medium">Skimmer 6 × 3 m s modřínovou palubou</span><span class="text-gray-500"> · Ivančice, 2024 — protiproud, rolovací plachta</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Postup -->
+<section id="postup" class="py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-5 gap-12">
+    <div class="md:col-span-2 fade-up">
+      <h2 class="font-display text-3xl font-semibold tracking-tight mb-3">Jak stavba probíhá</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">Od podpisu smlouvy po předání to obvykle trvá 4–6 týdnů čisté práce. Nejdelší část? Čekání, až vyzraje beton — to neošidíme.</p>
+      <p class="text-sm text-gray-500 leading-relaxed">Bazén do 40 m² nepotřebuje stavební povolení, stačí územní souhlas. Papíry vyřídíme za vás.</p>
+    </div>
+    <ol class="md:col-span-3 space-y-0">
+      <li class="flex gap-5 py-5 border-b border-gray-200 fade-up">
+        <span class="font-display text-petrol font-semibold text-lg w-8 shrink-0">01</span>
+        <div><h3 class="font-semibold mb-1">Zaměření a nabídka zdarma</h3><p class="text-sm text-gray-600">Přijedeme, projdeme zahradu, přístup pro techniku a vaše představy. Do týdne máte nabídku s pevnou cenou.</p></div>
+      </li>
+      <li class="flex gap-5 py-5 border-b border-gray-200 fade-up">
+        <span class="font-display text-petrol font-semibold text-lg w-8 shrink-0">02</span>
+        <div><h3 class="font-semibold mb-1">Výkop a základová deska</h3><p class="text-sm text-gray-600">Jáma s rezervou ~25 cm na každé straně, armovaná deska 15–20 cm. Beton necháváme zrát minimálně 7 dní.</p></div>
+      </li>
+      <li class="flex gap-5 py-5 border-b border-gray-200 fade-up">
+        <span class="font-display text-petrol font-semibold text-lg w-8 shrink-0">03</span>
+        <div><h3 class="font-semibold mb-1">Usazení a obetonování</h3><p class="text-sm text-gray-600">Bazén usadíme jeřábem, obetonováváme postupně po vrstvách současně s napouštěním vody — stěny tak drží tvar.</p></div>
+      </li>
+      <li class="flex gap-5 py-5 border-b border-gray-200 fade-up">
+        <span class="font-display text-petrol font-semibold text-lg w-8 shrink-0">04</span>
+        <div><h3 class="font-semibold mb-1">Technologie a zapojení</h3><p class="text-sm text-gray-600">Filtrace, potrubí, osvětlení, případně tepelné čerpadlo a zastřešení. Vše zapojíme a odzkoušíme.</p></div>
+      </li>
+      <li class="flex gap-5 py-5 fade-up">
+        <span class="font-display text-petrol font-semibold text-lg w-8 shrink-0">05</span>
+        <div><h3 class="font-semibold mb-1">Předání a zaškolení</h3><p class="text-sm text-gray-600">Ukážeme vám údržbu, nastavíme chemii a předáme dokumentaci. Pak už se jen koupete.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Ceny -->
+<section id="ceny" class="py-16 md:py-24 bg-gray-50 border-y border-gray-200">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="mb-12 fade-up">
+      <h2 class="font-display text-3xl font-semibold tracking-tight mb-3">Kolik to stojí</h2>
+      <p class="text-gray-600 max-w-lg">Orientační ceny na klíč včetně výkopu, desky a základní technologie. Přesnou cenu dostanete po zaměření — a platí.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white border border-gray-200 rounded-lg p-7 fade-up">
+        <h3 class="font-semibold mb-1">Plastový bazén</h3>
+        <p class="text-sm text-gray-500 mb-4">samonosný, do 6 × 3 m</p>
+        <p class="font-display text-3xl font-semibold mb-4">od 320 000 Kč</p>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>· polypropylen, svařovaný</li>
+          <li>· skimmer + písková filtrace</li>
+          <li>· schodiště na míru</li>
+        </ul>
+      </div>
+      <div class="bg-white border-2 border-petrol rounded-lg p-7 relative fade-up">
+        <span class="absolute -top-3 left-7 bg-petrol text-white text-xs font-medium px-2.5 py-1 rounded">Nejčastější volba</span>
+        <h3 class="font-semibold mb-1">Fóliový skimmer</h3>
+        <p class="text-sm text-gray-500 mb-4">betonový, do 8 × 4 m</p>
+        <p class="font-display text-3xl font-semibold mb-4">od 590 000 Kč</p>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>· libovolný tvar i hloubka</li>
+          <li>· fólie ALKORPLAN, 10 let záruka</li>
+          <li>· připraveno na zastřešení</li>
+        </ul>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-lg p-7 fade-up">
+        <h3 class="font-semibold mb-1">Přelivový bazén</h3>
+        <p class="text-sm text-gray-500 mb-4">hladina v úrovni terénu</p>
+        <p class="font-display text-3xl font-semibold mb-4">od 950 000 Kč</p>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>· přelivový žlab, akumulační jímka</li>
+          <li>· slaná úprava vody</li>
+          <li>· kamenný nebo keramický lem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-5">
+    <h2 class="font-display text-3xl font-semibold tracking-tight mb-10 fade-up">Na co se lidi ptají</h2>
+    <div class="divide-y divide-gray-200 border-y border-gray-200" x-data="{ open: 0 }">
+      <div class="fade-up">
+        <button @click="open = open === 1 ? 0 : 1" class="w-full flex justify-between items-center py-5 text-left font-medium gap-4">
+          Potřebuju stavební povolení?
+          <span class="text-petrol text-xl leading-none" x-text="open === 1 ? '–' : '+'"></span>
+        </button>
+        <p x-show="open === 1" x-collapse class="pb-5 text-sm text-gray-600 leading-relaxed">U bazénu do 40 m² zastavěné plochy ne — stačí územní souhlas od stavebního úřadu. Podklady připravíme a podáme za vás, je to pár dní.</p>
+      </div>
+      <div class="fade-up">
+        <button @click="open = open === 2 ? 0 : 2" class="w-full flex justify-between items-center py-5 text-left font-medium gap-4">
+          Jak dlouho stavba trvá?
+          <span class="text-petrol text-xl leading-none" x-text="open === 2 ? '–' : '+'"></span>
+        </button>
+        <p x-show="open === 2" x-collapse class="pb-5 text-sm text-gray-600 leading-relaxed">Obvykle 4–6 týdnů od výkopu po předání. Velkou část z toho tvoří technologické přestávky na zrání betonu — deska minimálně 7 dní, obetonování dalších 14. Když objednáte na podzim, na jaře se koupete.</p>
+      </div>
+      <div class="fade-up">
+        <button @click="open = open === 3 ? 0 : 3" class="w-full flex justify-between items-center py-5 text-left font-medium gap-4">
+          Kolik stojí provoz bazénu?
+          <span class="text-petrol text-xl leading-none" x-text="open === 3 ? '–' : '+'"></span>
+        </button>
+        <p x-show="open === 3" x-collapse class="pb-5 text-sm text-gray-600 leading-relaxed">U bazénu 7 × 3,5 m počítejte zhruba 8–15 tisíc Kč za sezónu — chemie, voda a elektřina pro filtraci. Tepelné čerpadlo náklady zvedne, ale prodlouží sezónu od dubna do října.</p>
+      </div>
+      <div class="fade-up">
+        <button @click="open = open === 4 ? 0 : 4" class="w-full flex justify-between items-center py-5 text-left font-medium gap-4">
+          Co s bazénem v zimě?
+          <span class="text-petrol text-xl leading-none" x-text="open === 4 ? '–' : '+'"></span>
+        </button>
+        <p x-show="open === 4" x-collapse class="pb-5 text-sm text-gray-600 leading-relaxed">Bazén se nevypouští — voda se upraví zazimovací chemií, hladina sníží pod trysky a technologie vypustí. Uděláme to za vás v rámci podzimní servisní objížďky.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section id="kontakt" class="py-16 md:py-24 bg-ink text-white">
+  <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12">
+    <div class="fade-up">
+      <h2 class="font-display text-3xl font-semibold tracking-tight mb-4">Napište nám o nabídku</h2>
+      <p class="text-gray-300 leading-relaxed mb-8 max-w-md">Ozveme se do druhého dne a domluvíme termín zaměření. Nezávazně — nabídka i výjezd jsou zdarma.</p>
+      <div class="space-y-3 text-sm">
+        <p class="text-gray-300"><span class="text-white font-medium">Telefon:</span> +420 777 000 000</p>
+        <p class="text-gray-300"><span class="text-white font-medium">E-mail:</span> info@bazeny-hladina.cz</p>
+        <p class="text-gray-300"><span class="text-white font-medium">Působíme:</span> Jižní Morava a Vysočina</p>
+      </div>
+    </div>
+    <form class="fade-up space-y-4" x-data="{ sent: false }" @submit.prevent="sent = true">
+      <template x-if="!sent">
+        <div class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <input required type="text" placeholder="Jméno" class="w-full bg-white/10 border border-white/20 rounded-md px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:border-petrol">
+            <input required type="tel" placeholder="Telefon" class="w-full bg-white/10 border border-white/20 rounded-md px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:border-petrol">
+          </div>
+          <input type="text" placeholder="Obec, kde se bude stavět" class="w-full bg-white/10 border border-white/20 rounded-md px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:border-petrol">
+          <textarea rows="4" placeholder="Jaký bazén si představujete? (rozměr, typ, zastřešení…)" class="w-full bg-white/10 border border-white/20 rounded-md px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:border-petrol"></textarea>
+          <button type="submit" class="bg-petrol text-white font-medium px-6 py-3 rounded-md hover:bg-petrol-dark transition-colors w-full sm:w-auto">Odeslat poptávku</button>
+        </div>
+      </template>
+      <div x-show="sent" x-cloak class="border border-white/20 rounded-md p-6 text-sm text-gray-200">
+        <p class="font-medium text-white mb-1">Děkujeme, poptávka je u nás.</p>
+        <p>V demoverzi se nic neodesílá — na ostrém webu vám přijde potvrzení a my se ozveme do druhého dne.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-ink border-t border-white/10 text-gray-400 text-xs">
+  <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row justify-between gap-3">
+    <p>© 2026 HLADINA bazény s.r.o. — smyšlená firma.</p>
+    <p>Ukázkový web (demo). Fotografie: Unsplash. Všechny údaje, ceny a reference jsou ilustrační.</p>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
